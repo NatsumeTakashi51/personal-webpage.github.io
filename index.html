@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Webpage: Surya</title>
+
+    <!-- CSS links -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div style="display: flex; margin-left: 8%; margin-top: 2%">
+        <a class="navbar-brand" href="#">Biodata</a>
+        <!-- Button 3 lines for small screens -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#docs">Documentation</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- About Me Section -->
+    <section id="about" class="container text-center">
+      <h2 class="section-title">About Me</h2>
+
+      <!-- Foto Profil -->
+      <div class="mb-4">
+        <h5
+          id="clickMe"
+          style="font-family: monospace; display: none; color: yellow"
+        >
+          Klik photo ini!
+        </h5>
+        <img
+          src="media/profile.jpeg"
+          alt="Profile Picture"
+          class="profile-img rounded-circle"
+          id="profileImg"
+        />
+      </div>
+
+      <!-- Deskripsi -->
+      <p class="fs-4 mt-3 text-fade-in">
+        Halo! Nama aku <strong>Surya Latifurrohman</strong>, seorang Junior IT
+        Developer yang penuh semangat dan selalu berusaha untuk terus
+        berkembang, Impianku adalah bekerja di Jepang! Aku sangat menikmati
+        proses belajar hal-hal baru, terutama dalam dunia teknologi dan sains.
+        Saat ini, aku sedang mengerjakan proyek utamaku, sebuah video game 2D
+        bernama Greensnake, yang aku kembangkan dengan harapan dapat dimainkan
+        oleh semua orang dan memberikan pengalaman berharga bagiku. Ada juga
+        website personal aku ini, dimana dalam website ini, Aku akan menyajikan
+        kegiatan magangku selama 4 bulan!
+      </p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="container">
+      <h2 class="section-title text-center py-5">My Projects</h2>
+      <div class="row g-4">
+        <!-- Project 1 -->
+        <div class="col-md-6">
+          <div class="card project-card">
+            <img
+              src="media/greensnake-prev.png"
+              class="card-img-top"
+              alt="Project 1"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Project Greensnake</h5>
+              <p class="card-text">
+                "Project Greensnake" adalah sebuah video game 2 dimensi bergenre
+                pixel art, puzzle adventurer yang aku buat menggunakan Unity.
+              </p>
+              <a id="btnProject" class="btn btn-primary">Lihat Proyek</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="col-md-6">
+          <div class="card project-card">
+            <img
+              src="media/project2/project-banner.png"
+              class="card-img-top"
+              alt="Project 1"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Project Magang</h5>
+              <p class="card-text">
+                Sebuah website personal simple, menampilkan hal-hal tentang
+                diriku dan dokumentasi proyek-proyek pribadiku.
+              </p>
+              <a id="btnProject" class="btn btn-primary" href="project2.html"
+                >Lihat Proyek</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Documentation Section -->
+    <section id="docs" class="container">
+      <h2 class="section-title text-center">Documentation in Common</h2>
+
+      <div class="container py-1 masonry-container">
+        <!-- The Popup (Initially hidden) -->
+        <div id="popup" class="popup">
+          <div class="popup-content">
+            <img class="card-img-top" id="popup-img" src="" alt="Popup Image" />
+
+            <div class="card-body">
+              <button class="btn btn-primary" onclick="closePopup()">
+                Tutup
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- This was the pop up initial object -->
+
+        <!-- Image 1 -->
+        <div class="col">
+          <div class="masonry-item" onclick="openPopUp(this)">
+            <img
+              src="https://picsum.photos/650/500?random=1"
+              alt="Image 1"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <p class="card-text text-center">Description for Image 1</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="masonry-item" onclick="openPopUp(this)">
+            <img
+              src="https://picsum.photos/350/200?random=1"
+              alt="Image 1"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <p class="card-text text-center">Description for Image 1</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="masonry-item" onclick="openPopUp(this)">
+            <img
+              src="https://picsum.photos/850/400?random=1"
+              alt="Image 1"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <p class="card-text text-center">Description for Image 1</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="masonry-item" onclick="openPopUp(this)">
+            <img
+              src="https://picsum.photos/250/100?random=1"
+              alt="Image 1"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <p class="card-text text-center">Description for Image 1</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="masonry-item" onclick="openPopUp(this)">
+            <img
+              src="https://picsum.photos/850/500?random=1"
+              alt="Image 1"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <p class="card-text text-center">Description for Image 1</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="masonry-item" onclick="openPopUp(this)">
+            <img
+              src="https://picsum.photos/450/500?random=1"
+              alt="Image 1"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <p class="card-text text-center">Description for Image 1</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Image 1 -->
+        <div class="col">
+          <div class="masonry-item" onclick="openPopUp(this)">
+            <img
+              src="https://picsum.photos/650/500?random=1"
+              alt="Image 1"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <p class="card-text text-center">Description for Image 1</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="masonry-item" onclick="openPopUp(this)">
+            <img
+              src="https://picsum.photos/350/200?random=1"
+              alt="Image 1"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <p class="card-text text-center">Description for Image 1</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="masonry-item" onclick="openPopUp(this)">
+            <img
+              src="https://picsum.photos/850/400?random=1"
+              alt="Image 1"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <p class="card-text text-center">Description for Image 1</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="masonry-item" onclick="openPopUp(this)">
+            <img
+              src="https://picsum.photos/250/100?random=1"
+              alt="Image 1"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <p class="card-text text-center">Description for Image 1</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="masonry-item" onclick="openPopUp(this)">
+            <img
+              src="https://picsum.photos/850/500?random=1"
+              alt="Image 1"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <p class="card-text text-center">Description for Image 1</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="masonry-item" onclick="openPopUp(this)">
+            <img
+              src="https://picsum.photos/450/500?random=1"
+              alt="Image 1"
+              class="card-img-top"
+            />
+            <div class="card-body">
+              <p class="card-text text-center">Description for Image 1</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2025 Surya Latifurrohman. Website Proyek PKL.</p>
+    </footer>
+
+    <!-- Bootstrap JS and Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+    <script src="script.js" defer></script>
+  </body>
+</html>

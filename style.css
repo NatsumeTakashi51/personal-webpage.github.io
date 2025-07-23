@@ -1,0 +1,229 @@
+body {
+  font-family: monospace;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: linear-gradient(
+    135deg,
+    rgb(202, 238, 250) 0%,
+    rgb(119, 174, 194) 60%,
+    rgb(99, 157, 208) 100%
+  );
+  color: #232323;
+  text-align: center;
+  height: 100vh;
+  margin: 0;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.row {
+  display: flex; /* Flexbox layout */
+  justify-content: space-around; /* Space the images evenly */
+  flex-wrap: wrap; /* Allow wrapping if the screen is too small */
+}
+
+.col {
+  text-align: center; /* Center the text below each image */
+}
+
+.card {
+  border: none;
+}
+
+.navbar {
+  background-color: #007bff;
+}
+
+.navbar a {
+  color: white !important;
+}
+
+.container {
+  margin-top: 70px;
+}
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #007bff;
+  animation: colorChange 6s ease infinite;
+  margin-top: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* #FFF44F 
+49A2CB
+978CF2
+F8F0FF */
+@keyframes colorChange {
+  0% {
+    border-color: #49a2cb;
+  }
+  33% {
+    border-color: #978cf2;
+  }
+  66% {
+    border-color: #f8f0ff;
+  }
+  100% {
+    border-color: #49a2cb;
+  }
+}
+
+.profile-img:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 30px rgba(0, 123, 255, 0.7);
+}
+
+.section-title {
+  color: #007bff;
+  margin-bottom: 30px;
+}
+
+/* For project cards */
+.project-card {
+  background-image: linear-gradient(to right, #fff893, #fff44f);
+  opacity: 0.88;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.project-card img,
+.docs-card img {
+  border-radius: 10px;
+}
+
+.project-card:hover {
+  transform: scale(1.06);
+  box-shadow: 0px 0px 30px #fff34fde;
+  z-index: 1;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.project-banner {
+  border-radius: 10px;
+  border: 3px solid #fff34fde;
+  margin-bottom: 20px;
+  margin-top: 15px;
+  width: 70%;
+}
+
+/* For documentation cards */
+/* For the card images */
+.card-img-top {
+  width: 100%; /* Ensure image fills the width of the card */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: contain; /* Ensures image fits well without distortion */
+  border-radius: 10px; /* Optional: rounded corners for images */
+  transition: transform 0.3s ease; /* Smooth zoom effect */
+}
+
+/* Here are the code for masonry effect */
+.masonry-container {
+  text-align: center;
+  column-count: 5;
+  column-gap: 1rem;
+  padding: 1rem;
+}
+
+.masonry-item {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: rgba(0, 123, 255, 0.35);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.masonry-item:hover {
+  transform: scale(1.1);
+  background-color: rgba(0, 123, 255, 0.5);
+  box-shadow: 0px 0px 30px rgba(0, 123, 255, 1);
+}
+
+/* Make responsive adjustments for the masonry layout */
+@media (max-width: 768px) {
+  .masonry-container {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 576px) {
+  .masonry-container {
+    column-count: 1;
+  }
+}
+
+.text-fade-in {
+  opacity: 0;
+  animation: fadeIn 3s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Teks muncul dari bawah */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#sakuraFlower {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  width: 220px;
+  height: 220px;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+/* The Popup */
+.popup {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8); /* Dimmed background */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup-content {
+  background: white;
+  padding: 20px;
+  text-align: center;
+  max-width: 80%;
+  max-height: 80%;
+  overflow: auto;
+  border-radius: 10px;
+}
+
+.popup-content img {
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.footer {
+  background-color: #007bff;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin-top: 40px;
+}
