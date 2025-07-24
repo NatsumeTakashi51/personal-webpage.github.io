@@ -54,10 +54,6 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* #FFF44F 
-49A2CB
-978CF2
-F8F0FF */
 @keyframes colorChange {
   0% {
     border-color: #49a2cb;
@@ -83,6 +79,12 @@ F8F0FF */
   margin-bottom: 30px;
 }
 
+.text-highlight {
+  color: #fff44f;
+  font-weight: bold;
+  font-style: italic;
+}
+
 /* For project cards */
 .project-card {
   background-image: linear-gradient(to right, #fff893, #fff44f);
@@ -92,6 +94,18 @@ F8F0FF */
   margin-bottom: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
+  height: 100%;
+  padding-bottom: 20px;
+}
+
+/* For the visit page button */
+.project-card .card-body a {
+  position: absolute;
+  left: 50%;
+  bottom: 15px;
+  transform: translateX(-50%);
+  margin-bottom: 9px;
+  display: block;
 }
 
 .project-card img,
@@ -110,9 +124,17 @@ F8F0FF */
 .project-banner {
   border-radius: 10px;
   border: 3px solid #fff34fde;
-  margin-bottom: 20px;
+  box-shadow: 0 8px 30px #fff34fde;
+  margin-bottom: 12px;
   margin-top: 15px;
-  width: 70%;
+  width: 55%;
+}
+
+.project-about {
+  background-color: rgba(0, 123, 255, 0.35);
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.8);
+  padding: 20px 20px 20px 20px;
 }
 
 /* For documentation cards */
@@ -185,7 +207,7 @@ F8F0FF */
   transform: translate(-50%, -50%) rotate(0deg);
   width: 220px;
   height: 220px;
-  z-index: 9999;
+  z-index: 999;
   opacity: 0;
   transition: opacity 0.35s ease;
 }

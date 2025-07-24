@@ -37,7 +37,7 @@ function createRandomElements(count, src, minSize, maxSize) {
 
 // For random background image generators...
 window.addEventListener("DOMContentLoaded", () => {
-  const lemonCount = 5; // Count for the lemons
+  const lemonCount = 3; // Count for the lemons
   const iceCount = 7; // Count for the ice cubes
   const bubbleCount = 5;
 
@@ -69,7 +69,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   createRandomElements(iceCount, "media/ice.png", 200, 320); // To create the ice cubes
   createRandomElements(bubbleCount, "media/bubble.png", 230, 420); // To create the bubbles
-  createRandomElements(3, "media/mint.png", 16, 32); // To create mint leaves
+  createRandomElements(4, "media/mint.png", 13, 26); // To create mint leaves
 });
 
 // For profile picture OnClick event...
