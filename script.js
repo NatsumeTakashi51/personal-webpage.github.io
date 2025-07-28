@@ -142,3 +142,63 @@ function openPopUp(element) {
 function closePopup() {
   document.getElementById("popup").style.display = "none";
 }
+
+///// FOR PROJECT BANNER ON EACH PROJECT PAGES ////
+// Banner carousel logic for project2
+const bannerImages2 = [
+  "media/project2/project-banner.png",
+  "media/project2/web1.png",
+  "media/project2/web2.png",
+  // Add more image paths as needed
+];
+
+let currentBanner = 0;
+
+const bannerImg = document.getElementById("banner-img");
+const prevBtn = document.getElementById("banner-prev");
+const nextBtn = document.getElementById("banner-next");
+
+// Helper: Animate fade out/in
+function animateBannerChange(newIndex) {
+  if (!bannerImg) return;
+  bannerImg.style.transition = "opacity 0.5s";
+  bannerImg.style.opacity = "0";
+
+  setTimeout(() => {
+    bannerImg.src = bannerImages2[newIndex];
+    bannerImg.onload = () => {
+      bannerImg.style.opacity = "1";
+    };
+  }, 400);
+}
+
+// Main function to update the banner
+function updateBanner(animated = false) {
+  if (bannerImg) {
+    if (animated) {
+      animateBannerChange(currentBanner);
+    } else {
+      bannerImg.src = bannerImages2[currentBanner];
+      bannerImg.style.opacity = "1";
+    }
+  }
+}
+
+// If buttons are found
+if (prevBtn && nextBtn && bannerImg) {
+  prevBtn.addEventListener("click", () => {
+    currentBanner =
+      (currentBanner - 1 + bannerImages2.length) % bannerImages2.length;
+    updateBanner(true);
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentBanner = (currentBanner + 1) % bannerImages2.length;
+    updateBanner(true);
+  });
+
+  // Set initial banner image
+  bannerImg.style.opacity = "1";
+  bannerImg.style.transition = "opacity 0.5s";
+  updateBanner();
+}

@@ -81,8 +81,10 @@ body {
 
 .text-highlight {
   color: #fff44f;
+  text-shadow: 2px 2px 0px green;
   font-weight: bold;
   font-style: italic;
+  font-size: 110%;
 }
 
 /* For project cards */
@@ -125,9 +127,9 @@ body {
   border-radius: 10px;
   border: 3px solid #fff34fde;
   box-shadow: 0 8px 30px #fff34fde;
-  margin-bottom: 12px;
+  margin-bottom: 35px;
   margin-top: 15px;
-  width: 55%;
+  width: 62%;
 }
 
 .project-about {
