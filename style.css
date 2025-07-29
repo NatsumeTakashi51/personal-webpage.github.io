@@ -5,9 +5,9 @@ body {
   height: 100vh;
   background: linear-gradient(
     135deg,
-    rgb(202, 238, 250) 0%,
-    rgb(119, 174, 194) 60%,
-    rgb(99, 157, 208) 100%
+    rgb(180, 234, 252) 0%,
+    rgb(102, 183, 212) 60%,
+    rgb(46, 124, 193) 100%
   );
   color: #232323;
   text-align: center;
