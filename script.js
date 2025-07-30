@@ -159,12 +159,26 @@ function closePopup() {
 
 ///// FOR PROJECT BANNER ON EACH PROJECT PAGES ////
 // Banner carousel logic for project2
-const bannerImages2 = [
+const bannerProject1 = [
+  "media/project1/greensnake-prev.png",
+  "media/project1/dev_greensnake.png",
+  "media/project1/greensnake-banner.png",
+];
+
+const bannerProject2 = [
   "media/project2/project-banner.png",
   "media/project2/web1.png",
   "media/project2/web2.png",
-  // Add more image paths as needed
 ];
+
+// Getting the file name of the windows
+const fileName = window.location.pathname.split("/").pop();
+let bannerImgSources = [];
+if (fileName == "project1.html") {
+  bannerImgSources = bannerProject1;
+} else if (fileName == "project2.html") {
+  bannerImgSources = bannerProject2;
+}
 
 let currentBanner = 0;
 
@@ -179,7 +193,7 @@ function animateBannerChange(newIndex) {
   bannerImg.style.opacity = "0";
 
   setTimeout(() => {
-    bannerImg.src = bannerImages2[newIndex];
+    bannerImg.src = bannerImgSources[newIndex];
     bannerImg.onload = () => {
       bannerImg.style.opacity = "1";
     };
@@ -192,7 +206,7 @@ function updateBanner(animated = false) {
     if (animated) {
       animateBannerChange(currentBanner);
     } else {
-      bannerImg.src = bannerImages2[currentBanner];
+      bannerImg.src = bannerImgSources[currentBanner];
       bannerImg.style.opacity = "1";
     }
   }
@@ -202,12 +216,12 @@ function updateBanner(animated = false) {
 if (prevBtn && nextBtn && bannerImg) {
   prevBtn.addEventListener("click", () => {
     currentBanner =
-      (currentBanner - 1 + bannerImages2.length) % bannerImages2.length;
+      (currentBanner - 1 + bannerImgSources.length) % bannerImgSources.length;
     updateBanner(true);
   });
 
   nextBtn.addEventListener("click", () => {
-    currentBanner = (currentBanner + 1) % bannerImages2.length;
+    currentBanner = (currentBanner + 1) % bannerImgSources.length;
     updateBanner(true);
   });
 
