@@ -35,6 +35,8 @@ function createRandomElements(count, src, minSize, maxSize) {
   }
 }
 
+////// HERE'S THE MAIN FUNCTION DOCUMENT ON LOAD /////
+
 // For random background image generators...
 window.addEventListener("DOMContentLoaded", () => {
   const lemonCount = 3; // Count for the lemons
@@ -77,6 +79,12 @@ const profileImg = document.getElementById("profileImg"); // This code is used 2
 
 if (profileImg) {
   profileImg.addEventListener("click", function () {
+    // Playing the audio
+    const startupSound = document.getElementById("startup-audio");
+    if (startupSound) {
+      startupSound.play();
+    }
+
     const sakura = document.createElement("img");
     sakura.src = "media/sakura-flower.png";
     sakura.id = "sakuraFlower";
@@ -111,6 +119,12 @@ if (profileImg) {
         clearInterval(rotateInterval);
         clearInterval(toggleInterval);
         sakura.remove();
+
+        // Stop the sound along with the flower
+        if (startupSound) {
+          startupSound.pause(); // Pause the audio
+          startupSound.currentTime = 0; // Reset to the beginning
+        }
       }, 500); // Wait for fade-out to finish (matches CSS transition)
     }, 4850);
   });
