@@ -189,7 +189,7 @@ const nextBtn = document.getElementById("banner-next");
 // Helper: Animate fade out/in
 function animateBannerChange(newIndex) {
   if (!bannerImg) return;
-  bannerImg.style.transition = "opacity 0.5s";
+  bannerImg.style.transition = "opacity 0.2s";
   bannerImg.style.opacity = "0";
 
   setTimeout(() => {
@@ -197,7 +197,7 @@ function animateBannerChange(newIndex) {
     bannerImg.onload = () => {
       bannerImg.style.opacity = "1";
     };
-  }, 400);
+  }, 200);
 }
 
 // Main function to update the banner
@@ -227,6 +227,6 @@ if (prevBtn && nextBtn && bannerImg) {
 
   // Set initial banner image
   bannerImg.style.opacity = "1";
-  bannerImg.style.transition = "opacity 0.5s";
+  bannerImg.style.transition = "opacity 0.2s";
   updateBanner();
 }
