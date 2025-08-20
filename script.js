@@ -1,5 +1,7 @@
 //////////////////// JAVASCRIPT IS PROCEDURAL PROGRAMMING LANGUAGE YOU SHIT ///////////////////////////
 // Function to create image backgrounds
+const backgroundContainer = document.getElementById("bg-container");
+
 function createRandomElements(count, src, minSize, maxSize) {
   for (let i = 0; i < count; i++) {
     const element = document.createElement("img");
@@ -8,6 +10,7 @@ function createRandomElements(count, src, minSize, maxSize) {
     // Size randomization
     const randomSize = Math.floor(Math.random() * (maxSize - minSize)) + 100; // Adjust max size range
     element.style.width = `${randomSize}px`;
+    element.style.height = "auto";
 
     // Increase width by 20% (for visual effect)
     element.style.width = `${randomSize * 1.1}px`;
@@ -31,42 +34,41 @@ function createRandomElements(count, src, minSize, maxSize) {
     element.style.opacity = "0.65";
     element.style.pointerEvents = "none";
 
-    document.body.appendChild(element);
+    backgroundContainer.appendChild(element);
   }
 }
 
 ////// HERE'S THE MAIN FUNCTION DOCUMENT ON LOAD /////
-
 // For random background image generators...
 window.addEventListener("DOMContentLoaded", () => {
   const lemonCount = 3; // Count for the lemons
   const iceCount = 7; // Count for the ice cubes
   const bubbleCount = 5;
 
-  // for lemons
   for (let i = 0; i < lemonCount; i++) {
     const lemon = document.createElement("img");
     lemon.src = "media/lemon.png";
 
-    const randomSize = Math.floor(Math.random() * (440 - 120)) + 100;
+    const randomSize = Math.floor(Math.random() * (400 - 100)) + 100;
     lemon.style.width = `${randomSize}px`;
     lemon.style.height = `${randomSize}px`;
 
-    lemon.style.position = "fixed";
+    lemon.style.position = "absolute"; // buat positioning relatif terhadap div
 
     // Randomly choose left or right side
-    const side = Math.random() < 0.5 ? "left" : "right"; // Here 0.5 value means the center of the display... 1 left, 0 right
+    const side = Math.random() < 0.5 ? "left" : "right";
     lemon.style[side] = "8px";
 
     // Random vertical position (stay within window height)
     const maxTop = window.innerHeight - randomSize;
     lemon.style.top = `${Math.floor(Math.random() * maxTop)}px`;
 
-    lemon.style.zIndex = "-10";
+    // lemon.style.zIndex = "-10";
     lemon.style.opacity = "0.6";
-    lemon.style.pointerEvents = "none";
+    lemon.classList.add("img-fluid");
 
-    document.body.appendChild(lemon);
+    // 3. Masukkan lemon ke dalam div
+    backgroundContainer.appendChild(lemon);
   }
 
   createRandomElements(iceCount, "media/ice.png", 200, 320); // To create the ice cubes
