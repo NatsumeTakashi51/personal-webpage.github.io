@@ -1,6 +1,14 @@
 //////////////////// JAVASCRIPT IS PROCEDURAL PROGRAMMING LANGUAGE YOU SHIT ///////////////////////////
-// Function to create image backgrounds
-const backgroundContainer = document.getElementById("bg-container");
+
+// Function to create image backgrounds container
+const backgroundContainer = document.createElement("div");
+backgroundContainer.classList.add("bg-container");
+document.body.appendChild(backgroundContainer);
+
+// This function will return true if it's on large screen, and vice versa...
+function isLargeScreen() {
+  return window.innerWidth > 768;
+}
 
 function createRandomElements(count, src, minSize, maxSize) {
   for (let i = 0; i < count; i++) {
@@ -8,7 +16,7 @@ function createRandomElements(count, src, minSize, maxSize) {
     element.src = src;
 
     // Size randomization
-    const randomSize = Math.floor(Math.random() * (maxSize - minSize)) + 100; // Adjust max size range
+    const randomSize = Math.floor(Math.random() * (maxSize - minSize)) + 50; // Adjust max size range
     element.style.width = `${randomSize}px`;
     element.style.height = "auto";
 
@@ -30,7 +38,8 @@ function createRandomElements(count, src, minSize, maxSize) {
     element.style.top = `${Math.floor(Math.random() * maxTop)}px`;
 
     // Styling
-    element.style.zIndex = "-10";
+    element.classList.add("img-fluid");
+    element.style.zIndex = "-99";
     element.style.opacity = "0.65";
     element.style.pointerEvents = "none";
 
@@ -38,18 +47,12 @@ function createRandomElements(count, src, minSize, maxSize) {
   }
 }
 
-////// HERE'S THE MAIN FUNCTION DOCUMENT ON LOAD /////
-// For random background image generators...
-window.addEventListener("DOMContentLoaded", () => {
-  const lemonCount = 3; // Count for the lemons
-  const iceCount = 7; // Count for the ice cubes
-  const bubbleCount = 5;
-
+function createLemonBg(lemonCount, minSize, maxSize) {
   for (let i = 0; i < lemonCount; i++) {
     const lemon = document.createElement("img");
     lemon.src = "media/lemon.png";
 
-    const randomSize = Math.floor(Math.random() * (400 - 100)) + 100;
+    const randomSize = Math.floor(Math.random() * (maxSize - minSize)) + 100;
     lemon.style.width = `${randomSize}px`;
     lemon.style.height = `${randomSize}px`;
 
@@ -63,17 +66,34 @@ window.addEventListener("DOMContentLoaded", () => {
     const maxTop = window.innerHeight - randomSize;
     lemon.style.top = `${Math.floor(Math.random() * maxTop)}px`;
 
-    // lemon.style.zIndex = "-10";
+    lemon.style.zIndex = "-999";
     lemon.style.opacity = "0.6";
     lemon.classList.add("img-fluid");
 
     // 3. Masukkan lemon ke dalam div
     backgroundContainer.appendChild(lemon);
   }
+}
 
-  createRandomElements(iceCount, "media/ice.png", 200, 320); // To create the ice cubes
-  createRandomElements(bubbleCount, "media/bubble.png", 230, 420); // To create the bubbles
-  createRandomElements(4, "media/mint.png", 13, 26); // To create mint leaves
+////// HERE'S THE MAIN FUNCTION DOCUMENT ON LOAD /////
+// For random background image generators...
+window.addEventListener("DOMContentLoaded", () => {
+  const lemonCount = 3; // Count for the lemons
+  const iceCount = 7; // Count for the ice cubes
+  const bubbleCount = 5;
+
+  // true == screen is large
+  if (isLargeScreen()) {
+    createLemonBg(3, 80, 400);
+    createRandomElements(7, "media/ice.png", 420, 620); // To create the ice cubes
+    createRandomElements(5, "media/bubble.png", 200, 520); // To create the bubbles
+    createRandomElements(4, "media/mint.png", 150, 200); // To create mint leaves
+  } else {
+    createLemonBg(3, 40, 80);
+    createRandomElements(3, "media/ice.png", 220, 320); // To create the ice cubes
+    createRandomElements(4, "media/bubble.png", 110, 220); // To create the bubbles
+    createRandomElements(2, "media/mint.png", 10, 60); // To create mint leaves
+  }
 });
 
 // For profile picture OnClick event...
