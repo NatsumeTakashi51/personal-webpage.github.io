@@ -38,7 +38,7 @@ body {
   width: 100vw;
   height: 100vh;
   z-index: -99;
-  pointer-events: none; 
+  pointer-events: none;
 }
 
 .navbar {
@@ -110,6 +110,11 @@ body {
   padding-bottom: 20px;
 }
 
+.text-fade-in {
+  opacity: 0;
+  animation: fadeIn 3s forwards;
+}
+
 /* For the visit page button */
 .project-card .card-body a {
   position: absolute;
@@ -143,11 +148,19 @@ body {
 }
 
 .project-about {
-  font-size: 125%;
-  background-color: rgba(0, 123, 255, 0.35);
+  font-size: 20px;
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0, 123, 255, 0.8);
   padding: 3%;
+
+  /* Glassmorphism effect */
+  background: rgba(0, 123, 255, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.about-main-fs {
+  font-size: 20px;
 }
 
 /* For documentation cards */
@@ -172,43 +185,20 @@ body {
   display: inline-block;
   width: 100%;
   margin-bottom: 1rem;
-  background-color: rgba(0, 123, 255, 0.35);
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  /* Glassmorphism effect */
+  background: rgba(0, 123, 255, 0.35);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .masonry-item:hover {
   transform: scale(1.1);
-  background-color: rgba(0, 123, 255, 0.5);
+  background: rgba(0, 123, 255, 0.5);
   box-shadow: 0px 0px 30px rgba(0, 123, 255, 1);
-}
-
-/* Make responsive adjustments for the masonry layout */
-/* For small screens (mobile) */
-@media (max-width: 575.98px) {
-  .masonry-container {
-    column-count: 2; /* 2 columns for small screens */
-  }
-}
-
-/* For medium screens and up (tablets and larger) */
-@media (min-width: 576px) {
-  .masonry-container {
-    column-count: 3; /* Optional: can adjust to 3 columns on tablet */
-  }
-}
-
-/* For large screens and up (desktop) */
-@media (min-width: 992px) {
-  .masonry-container {
-    column-count: 5; /* Default: 5 columns on larger screens */
-  }
-}
-
-.text-fade-in {
-  opacity: 0;
-  animation: fadeIn 3s forwards;
 }
 
 @keyframes fadeIn {
@@ -269,4 +259,49 @@ body {
   padding: 20px;
   text-align: center;
   margin-top: 40px;
+}
+
+/* HERE ARE CODE FOR ADJUSTING CONTENTS BASED ON SCREEN SIZE */
+/* Make responsive adjustments for the masonry layout */
+/* For small screens (mobile) */
+@media (max-width: 575.98px) {
+  .masonry-container {
+    column-count: 2; /* 2 columns for small screens */
+  }
+
+  body,
+  .project-about {
+    font-size: 10px;
+  }
+
+  .about-main-fs {
+    font-size: 13px;
+  }
+}
+
+/* For medium screens and up (tablets and larger) */
+@media (min-width: 576px) {
+  .masonry-container {
+    column-count: 3; /* Optional: can adjust to 3 columns on tablet */
+  }
+
+  body {
+    font-size: 13px;
+  }
+}
+
+/* For large screens and up (desktop) */
+@media (min-width: 992px) {
+  .masonry-container {
+    column-count: 5; /* Default: 5 columns on larger screens */
+  }
+
+  body {
+    font-size: 14px;
+  }
+
+  .project-about,
+  .about-main-fs {
+    font-size: 20px;
+  }
 }

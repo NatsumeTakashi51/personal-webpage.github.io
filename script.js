@@ -182,9 +182,9 @@ function closePopup() {
 ///// FOR PROJECT BANNER ON EACH PROJECT PAGES ////
 // Banner carousel logic for project2
 const bannerProject1 = [
+  "media/project1/dev_banner.png",
   "media/project1/greensnake-prev.png",
-  "media/project1/dev_greensnake.png",
-  "media/project1/greensnake-banner.png",
+  "media/project1/gem_prev.png",
 ];
 
 const bannerProject2 = [
