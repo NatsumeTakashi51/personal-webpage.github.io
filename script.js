@@ -89,10 +89,10 @@ window.addEventListener("DOMContentLoaded", () => {
     createRandomElements(5, "media/bubble.png", 200, 520); // To create the bubbles
     createRandomElements(4, "media/mint.png", 150, 200); // To create mint leaves
   } else {
-    createLemonBg(3, 40, 80);
+    createLemonBg(3, 80, 170);
     createRandomElements(3, "media/ice.png", 220, 320); // To create the ice cubes
-    createRandomElements(4, "media/bubble.png", 110, 220); // To create the bubbles
-    createRandomElements(2, "media/mint.png", 10, 60); // To create mint leaves
+    createRandomElements(4, "media/bubble.png", 180, 320); // To create the bubbles
+    createRandomElements(3, "media/mint.png", 10, 40); // To create mint leaves
   }
 });
 
