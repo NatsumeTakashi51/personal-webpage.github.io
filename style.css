@@ -97,6 +97,10 @@ body {
   font-size: 110%;
 }
 
+.section-title {
+  color: #0d00ff;
+}
+
 /* For project cards */
 .project-card {
   background-image: linear-gradient(to right, #fff893, #fff44f);
